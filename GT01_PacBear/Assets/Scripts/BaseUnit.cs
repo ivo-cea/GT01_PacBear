@@ -7,8 +7,8 @@ public class BaseUnit : BaseObject
     public float speed = 1;
 
     protected IntVector2 direction;
-    private IntVector2 nextPosInGrid;
-    private IntVector2 prevDirection;
+    protected IntVector2 nextPosInGrid;
+    protected IntVector2 prevDirection;
 
     protected float moveTimer;
 

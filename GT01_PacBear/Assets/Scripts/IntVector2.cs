@@ -2,6 +2,7 @@ using UnityEngine;
 
 public struct IntVector2
 {
+    #region shorthands
     /// <summary>
     /// Shorthand for writing new IntVector2(0,1)
     /// </summary>
@@ -10,6 +11,39 @@ public struct IntVector2
         get
         {
             return new IntVector2(0, 1);
+        }
+    }
+
+    /// <summary>
+    /// Shorthand for writing new IntVector2(0,-1)
+    /// </summary>
+    public static IntVector2 backward
+    {
+        get
+        {
+            return new IntVector2(0, -1);
+        }
+    }
+
+    /// <summary>
+    /// Shorthand for writing new IntVector2(-1,0)
+    /// </summary>
+    public static IntVector2 left
+    {
+        get
+        {
+            return new IntVector2(-1, 0);
+        }
+    }
+
+    /// <summary>
+    /// Shorthand for writing new IntVector2(1,0)
+    /// </summary>
+    public static IntVector2 right
+    {
+        get
+        {
+            return new IntVector2(1, 0);
         }
     }
 
@@ -23,6 +57,8 @@ public struct IntVector2
             return new IntVector2(0, 0);
         }
     }
+
+    #endregion
 
     public int x;
     public int y;

@@ -9,7 +9,7 @@ public class PacBear : BaseUnit
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            direction = new IntVector2(0, -1);            
+            direction = IntVector2.backward;            
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -17,11 +17,11 @@ public class PacBear : BaseUnit
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            direction = new IntVector2(-1, 0);
+            direction = IntVector2.left;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            direction = new IntVector2(1, 0);
+            direction = IntVector2.right;
         }
 
         Move();

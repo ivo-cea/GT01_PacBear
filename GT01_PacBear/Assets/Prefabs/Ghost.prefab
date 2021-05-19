@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 492280288273194764}
   - component: {fileID: 492280288344904472}
   m_Layer: 0
-  m_Name: Toon Ghost-Blue
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537c1140aeaa1844daac7657dff1a36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
 --- !u!1 &492280288280520034
 GameObject:
   m_ObjectHideFlags: 0
