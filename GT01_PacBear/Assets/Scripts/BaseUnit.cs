@@ -5,14 +5,14 @@ using UnityEngine;
 public class BaseUnit : BaseObject
 {
     public float speed = 1;
+    public IntVector2 nextPosInGrid;
 
     protected IntVector2 direction;
-    protected IntVector2 nextPosInGrid;
     protected IntVector2 prevDirection;
 
     protected float moveTimer;
 
-    private void Start()
+    protected virtual void Start()
     {
         //So it doesn't move to 0,0 at the start
         nextPosInGrid = posInGrid;
