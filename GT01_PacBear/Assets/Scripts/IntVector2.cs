@@ -80,6 +80,10 @@ public struct IntVector2
     public static IntVector2 operator -(IntVector2 a, IntVector2 b)
         => new IntVector2(a.x - b.x, a.y - b.y);
 
+    public static IntVector2 operator *(IntVector2 a, float f)
+    => new IntVector2((int)(a.x * f), (int) (a.y * f));
+
+
     /// <summary>
     /// Negating a Vector is the same as negating each individual component of that Vector
     /// </summary>
