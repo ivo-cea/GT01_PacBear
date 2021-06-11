@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PacBear : BaseUnit
 {
+    public static event Action onEatHoney;
 
     private void Update()
     {
@@ -27,5 +29,14 @@ public class PacBear : BaseUnit
         Move();
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Honey>())
+        {
+            Destroy(other.gameObject);
+            onEatHoney?.Invoke();
+        }
+    }
+
+
 }

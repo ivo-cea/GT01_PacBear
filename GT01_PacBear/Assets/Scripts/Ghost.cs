@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ghost : BaseUnit
 {
+    [SerializeField]
+    private SkinnedMeshRenderer ghostRenderer;
+
     private IntVector2[] directions =
     {
         IntVector2.forward,
@@ -14,20 +18,94 @@ public class Ghost : BaseUnit
 
     private PacBear pacBear;
 
+    private bool isEdible;
+    private bool isAlive
+    {
+        get
+        {
+            return _isAlive;
+        }
+        set
+        {
+            _isAlive = value;
+            ghostRenderer.material.SetFloat("_IsAlive", value ? 1 : 0);
+            //this is called EVERY time isAlive is changed.
+        }
+    }
+
+    private bool _isAlive;
+
+    private IntVector2 startPosInGrid;
+
     protected override void Start()
     {
         base.Start();
         pacBear = FindObjectOfType<PacBear>();
+        startPosInGrid = posInGrid;
+    }
+
+    private void OnEnable()
+    {
+        PacBear.onEatHoney += PacBear_onEatHoney;
+    }
+
+    private void OnDisable()
+    {
+        PacBear.onEatHoney -= PacBear_onEatHoney;
+    }
+
+    private void PacBear_onEatHoney()
+    {
+        isEdible = true;
+        ghostRenderer.material.SetFloat("_IsBlinking", 1);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PacBear>())
+        {
+            if (isEdible)
+            {                
+                isAlive = false;
+            } else
+            {
+                //Game restart
+                SceneManager.LoadScene("GameScene");
+            }
+        }
     }
 
     private void Update()
     {
         if (moveTimer == 0)
         {
-            //Wonder();
-            ChasePlayer();
+            if (isAlive)
+            {
+                //Wonder();
+                ChasePlayer();
+            } else
+            {
+                ReturnToStart();
+            }            
         }
         Move();
+    }
+
+    private void ReturnToStart()
+    {
+        Stack<Tile> path = PathFinder.GetPath(nextPosInGrid, startPosInGrid);
+        if (path != null && path.Count > 0)
+        {
+            //The destinationPos is the first part of the path towards the player
+            IntVector2 destinationPos = path.Pop().pos;
+            //We calculate the direction, since that's what the ghost needs to move
+            direction = destinationPos - nextPosInGrid;
+        }
+        else
+        {
+            direction = IntVector2.zero;
+            isAlive = true;
+        }
     }
 
     private void ChasePlayer ()
@@ -43,7 +121,6 @@ public class Ghost : BaseUnit
         {
             direction = IntVector2.zero;
         }
-        
     }
 
     private void Wonder()

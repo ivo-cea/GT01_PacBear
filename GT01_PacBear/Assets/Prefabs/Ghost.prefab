@@ -345,6 +345,7 @@ GameObject:
   - component: {fileID: 492280288280577298}
   - component: {fileID: 492280288273194764}
   - component: {fileID: 492280288344904472}
+  - component: {fileID: 5098039079639799567}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -409,6 +410,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  ghostRenderer: {fileID: 492280288268982546}
+--- !u!135 &5098039079639799567
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492280288280518016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!1 &492280288280520034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5396,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b55b9e8bb6a444448a017c673675b81, type: 2}
+  - {fileID: 2100000, guid: 535820ae9a2341841b12102905950ad9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

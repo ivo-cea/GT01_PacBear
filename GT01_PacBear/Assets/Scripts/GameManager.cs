@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     BaseObject[] objectPrefabs;
 
-    //0 = pill, 1 = wall, 2 = pacbear
-    /*
+    //0 = pill, 1 = wall, 2 = pacbear    
     private static int[,] grid = new int[,]
     {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -25,13 +24,13 @@ public class GameManager : MonoBehaviour
         {1,3,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,3,1},
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
-    */
-    private static int[,] grid;
+    
+   // private static int[,] grid;
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = MazeGenerator.Generate(new IntVector2(10, 10));
+      //  grid = MazeGenerator.Generate(new IntVector2(10, 10));
 
         PathFinder.GenerateGraph(grid, 1);
 

@@ -6,8 +6,8 @@
         _BlinkColor ("Blink Color", Color) = (1,1,1,1)
         _DeadColor ("Dead Color", Color) = (1,1,1,1)
 
-        _IsAlive ("Alive", Float) = 1 
-        _IsBlinking ("Blinking", Float) = 0
+        _IsAlive ("IsAlive", Float) = 1 
+        _IsBlinking ("IsBlinking", Float) = 0
 
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
